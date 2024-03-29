@@ -1,0 +1,42 @@
+.featured {
+  background-color: #222;
+  padding: 3rem 0;
+  color: #fff;
+
+  .columsWrapper {
+    display:grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1.1fr .9fr;
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      >div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.3rem;
+      }
+      h1 {
+        font-weight: normal;
+        font-size: 3rem;
+      }
+    
+      p {
+        color: #aaa;
+        font-size: .8rem;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .buttonsWrapper {
+        display: flex;
+        gap: .5rem;
+      }
+    }
+  }
+}

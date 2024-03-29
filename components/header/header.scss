@@ -1,0 +1,22 @@
+.header {
+  background-color: #222;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.50rem 0;
+
+    .logo {
+      color: #fff
+    }
+
+    .nav {
+      display: flex;
+      gap: 1rem;
+
+      a {
+        color: #aaa
+      }
+    }
+  }
+}
