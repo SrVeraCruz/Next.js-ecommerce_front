@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Button from '../primaryBtn/Button'
 import './productBox.scss'
+import { useContext } from 'react'
+import { CartContext } from '../cartContext/CartContext'
 
 export default function ProductBox(
   {
@@ -12,6 +14,8 @@ export default function ProductBox(
   }
 ){
   const url = '/products/'+_id
+
+  const { addProduct } = useContext(CartContext)
 
   return (
     <div className='productWrapper'>
@@ -26,8 +30,9 @@ export default function ProductBox(
           </div>
           <div>
             <Button 
-              primary="primary"
-              outline="outline"
+              onClick={() => addProduct(_id)}
+              primary
+              outline
             >
               Add to cart
             </Button>

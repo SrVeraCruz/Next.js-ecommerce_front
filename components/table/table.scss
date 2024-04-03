@@ -1,0 +1,15 @@
+.table {
+  width: 100%;
+
+  th {
+    text-align: start;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #ccc;
+    font-size: .7rem;
+  }
+  
+  td {
+    border-top: .05rem solid rgba(0, 0, 0, 0.106);
+  }
+}

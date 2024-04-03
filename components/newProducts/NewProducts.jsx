@@ -9,7 +9,7 @@ export default function NewProducts({products}) {
       <h2 className="title">New Arrivals</h2>
       <div className="newProducts">
         {!!products && products.map((product) => (
-          <ProductBox {...product}/>
+          <ProductBox key={product._id} {...product}/>
         ))}
       </div>  
     </Center>

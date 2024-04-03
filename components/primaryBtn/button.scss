@@ -1,7 +1,7 @@
 .btn {
   display: inline;
 
-  .button {
+  button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,7 +16,13 @@
       height: .8rem;
     }
   }
-  .l {
+
+  .block {
+    display: block;
+    width: 100%;
+  }
+
+  .larger {
     font-size: 1.2rem;
     padding: .6rem 1.2rem;
 
@@ -30,7 +36,6 @@
     border: .05rem solid #0d3d29;
     color: #fff;
   }
-
   .primary.outline {
     background-color: transparent;
     border: .05rem solid #0d3d29;
@@ -46,4 +51,15 @@
     color: #fff;
     border: .05rem solid #fff;
   }
+
+  .black{
+    background-color: #000;
+    color: #fff;
+  }
+  .black.outline {
+    background: transparent;
+    color: #000;
+    border: .05rem solid #000;
+  }
+
 }

@@ -1,9 +1,9 @@
 'use client'
 
 import "./page.scss"
-import Featured from "@/components/featured/Featured";
-import Header from "@/components/header/Header";
-import NewProducts from "@/components/newProducts/NewProducts";
+import Featured from "../components/featured/Featured";
+import Header from "../components/header/Header";
+import NewProducts from "../components/newProducts/NewProducts";
 import axios from "axios";
 import { useEffect, useState } from "react";
 

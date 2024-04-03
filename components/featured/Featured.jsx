@@ -3,8 +3,11 @@ import Center from "../center/Center";
 import Button from "../primaryBtn/Button";
 import Link from "next/link";
 import CartIcon from "../cartIcon/CartIcon";
+import { useContext } from "react";
+import { CartContext } from "../cartContext/CartContext";
 
 export default function Featured({product}) {
+  const {addProduct} = useContext(CartContext)
 
   return (
     <div className="featured">
@@ -16,15 +19,16 @@ export default function Featured({product}) {
               <p>{product?.description}</p>
               <div className="buttonsWrapper">
                 <Button 
-                  outline="outline" 
-                  white="white" 
+                  outline
+                  white
                 >
                   <Link href={'/products/'+product?._id}>
                     Read more
                   </Link>
                 </Button>
                 <Button 
-                  white="white" 
+                  onClick={() => addProduct(product._id)}
+                  white
                 >
                   <CartIcon />
                   Add to cart
