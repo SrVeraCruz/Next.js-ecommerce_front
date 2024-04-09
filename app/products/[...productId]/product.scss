@@ -1,0 +1,28 @@
+.colWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+
+  .box:first-child {
+    flex: 1;
+    background-color: #fff;
+    padding: 1.25rem;
+    border-radius: .5rem;
+  }
+
+  .box:nth-child(2) {
+    flex: 1.5;
+
+    .price {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      span {
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+}

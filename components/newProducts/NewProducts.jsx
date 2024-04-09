@@ -1,17 +1,13 @@
-import Center from '../center/Center'
-import ProductBox from '../productBox/ProductBox'
 import './newProducts.scss'
+import Center from '../center/Center'
+import ProductsFlex from '../productsFlex/ProductsFlex'
 
 export default function NewProducts({products}) {
   
   return (
     <Center>
       <h2 className="title">New Arrivals</h2>
-      <div className="newProducts">
-        {!!products && products.map((product) => (
-          <ProductBox key={product._id} {...product}/>
-        ))}
-      </div>  
+      <ProductsFlex products={products} /> 
     </Center>
   )
 }

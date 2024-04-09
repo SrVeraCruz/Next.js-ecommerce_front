@@ -10,11 +10,12 @@ import axios from "axios";
 import Table from "../../components/table/Table";
 import Input from "../../components/input/Input";
 
-export default function Cart() {
+export default function CartPage() {
   const { 
     cartProducts, 
     addProduct, 
-    removedProduct 
+    removedProduct,
+    clearCart
   } = useContext(CartContext)
 
   const [loading, setLoading] = useState(false);
@@ -25,21 +26,29 @@ export default function Cart() {
   const [postalCode,setPostalCode] = useState("")
   const [streetAddress,setStreetAddress] = useState("")
   const [country,setCountry] = useState("")
-
+  const [isSuccess,setIsSuccess] = useState(false)
+  
   const fetchCartProducts = async () => {
-    setLoading(true);
+    //setLoading(true);
     await axios.post('/api/cart',{ids:cartProducts})
-      .then(res => setProducts(res.data))
-      .catch(err => {console.error(err.message)}) 
-    setLoading(false);
+    .then(res => setProducts(res.data))
+    .catch(err => {console.error(err.message)}) 
+    //setLoading(false);
   }
   
   useEffect(() => {
-    if(cartProducts.length) {
+    if(cartProducts?.length) {
       fetchCartProducts()
     }
   }, [cartProducts])
-
+  
+  useEffect(() => {
+    if(window?.location.href.includes("success")) {
+      setIsSuccess(true)
+      clearCart()
+    }
+  }, [])
+  
   const goToPayment = async (e) => {
     e.preventDefault()
     const data = {
@@ -51,36 +60,40 @@ export default function Cart() {
       country,
       productsIds:cartProducts
     }
-
+    
     await axios.post('/api/checkout',data)
-      .then(res => {
-        if (res.data.url) {
-          window.location = res.data.url
-        }
-      })
-      .catch(err => console.error(err.message))
+    .then(res => {
+      if (res.data.url) {
+        
+        window.location = res.data.url
+      }
+    })
+    .catch(err => console.error(err.message))
   }
-
+  
   const moreOfThisProduct = (productId) => {
     addProduct(productId)
   }
-
+  
   const lessOfThisProduct = (productId) => {
+    if(cartProducts.length === 1) {
+      setProducts([])
+    }
     removedProduct(productId)
   }
-
+  
   let total = 0
-  if(cartProducts.length && products.length) {
+  if(cartProducts?.length && products.length) {
     for(const productId of cartProducts) {
       const price = products.find(
         product => product._id === productId
       )?.price || 0
-
+      
       total += price
     }
   }
-
-  if(window.location.href.includes("success")) {
+  
+  if(isSuccess) {
     return (
       <>
         <div className="cart">
@@ -98,6 +111,7 @@ export default function Cart() {
     )
   }
   
+
   return (
     <div className="cart">
       <Header />

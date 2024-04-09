@@ -1,0 +1,9 @@
+.newProducts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+
+  .productWrapper {
+    max-width: 11rem;
+  }
+}

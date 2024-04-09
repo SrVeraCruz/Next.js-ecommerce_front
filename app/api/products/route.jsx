@@ -7,14 +7,17 @@ export async function GET(req) {
 
   const url = new URL(req.url)
   const id = url.searchParams.get('id')
+  const all = url.searchParams.get('all')
 
+  let productDoc;
   if(id && id != '') {
-    const productDoc = await Product.findById(id)
-    return NextResponse.json(productDoc)
+    productDoc = await Product.findById(id)
+  } else if(all && all === '1') {
+    productDoc = await Product.find({}, null, {sort: {'_id':-1}});
   } else {
-    const productDoc = await Product.find(
+    productDoc = await Product.find(
       {}, null, {sort: {'_id':-1}, limit:10}
     )
-    return NextResponse.json(productDoc)
   }
+  return NextResponse.json(productDoc)
 }
