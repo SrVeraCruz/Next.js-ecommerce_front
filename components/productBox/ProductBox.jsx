@@ -3,6 +3,7 @@ import Button from '../primaryBtn/Button'
 import './productBox.scss'
 import { useContext } from 'react'
 import { CartContext } from '../cartContext/CartContext'
+import CartIcon from '../cartIcon/CartIcon'
 
 export default function ProductBox(
   {
@@ -33,8 +34,9 @@ export default function ProductBox(
               onClick={() => addProduct(_id)}
               primary
               outline
+              block
             >
-              Add to cart
+              Add to <CartIcon />
             </Button>
           </div>
         </div>

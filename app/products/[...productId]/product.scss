@@ -5,14 +5,15 @@
   margin-top: 2.5rem;
 
   .box:first-child {
-    flex: 1;
+    flex: 1 1 15rem;
     background-color: #fff;
     padding: 1.25rem;
     border-radius: .5rem;
   }
 
   .box:nth-child(2) {
-    flex: 1.5;
+    flex: 1.5 1.5 15rem;
+    min-width: 17rem;
 
     .price {
       margin-top: 1rem;

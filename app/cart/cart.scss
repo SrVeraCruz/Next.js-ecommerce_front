@@ -68,7 +68,8 @@
       flex: 3 3 15rem;
     }
     .box:nth-child(2) {
-      flex: .8 .8 14.5rem;
+      flex: 1;
+      min-width: 15rem;
     }
   }
 }

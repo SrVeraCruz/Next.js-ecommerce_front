@@ -1,21 +1,68 @@
+@import '../../app/page.scss';
+
 .header {
   background-color: #222;
+
+  @include mobile {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
 
   .wrapper {
     display: flex;
     justify-content: space-between;
     padding: 1.50rem 0;
-
+    
     .logo {
       color: #fff
     }
-
+    
     .nav {
       display: flex;
       gap: 1rem;
-
+  
+      @include mobile {
+        display: block;
+        position: fixed;
+        top: 3rem;
+        left: -100%;
+        right: 100%;
+        bottom: 0;
+        background-color: #222;
+        padding: 1.50rem;
+        transition: .2s ease-in-out;
+      }
+      
       a {
-        color: #aaa
+        color: #aaa;
+
+        @include mobile {
+          display: block;
+          padding: .8rem 0
+        }
+      }
+    }
+
+    @include mobile { 
+      .nav.active {
+        right: 0;
+        left: 0;
+      }
+    }
+
+    .navIcon {
+      display: none;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+
+      @include mobile {
+        display: block;
       }
     }
   }

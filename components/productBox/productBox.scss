@@ -1,3 +1,5 @@
+@import '../../app/page.scss';
+
 .productWrapper {
   text-align: center;
   flex: 1 1 9rem;
@@ -19,13 +21,14 @@
 
   .infoBox {
     padding-top: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
 
     .title {
       font-weight: 500;
       font-size: .85rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     .priceRow {
@@ -34,9 +37,20 @@
       align-items: center;
       margin-top: .1rem;
 
+      @include mobile {
+        display: block;
+        text-align: end;
+        font-size: 1rem;
+      }
+
       .price {
-        font-weight: 600;
-        font-size: 1.2rem;
+        font-weight: 700;
+        font-size: 1.3rem;
+        
+        @include mobile {
+          font-size: 1rem;
+          font-weight: 600;
+        }
       }
     }
   }

@@ -1,3 +1,5 @@
+@import '../../app/page.scss';
+
 .featured {
   background-color: #222;
   padding: 3rem 0;
@@ -5,8 +7,13 @@
 
   .columsWrapper {
     display:grid;
-    grid-gap: 1rem;
+    gap: 1rem;
     grid-template-columns: 1.1fr .9fr;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
 
     .box {
       display: flex;
@@ -23,6 +30,12 @@
         font-weight: normal;
         font-size: 3rem;
       }
+
+      @include mobile {
+        h1 {
+          font-size: 1.7rem;
+        }
+      }
     
       p {
         color: #aaa;
@@ -33,9 +46,22 @@
         width: 100%;
       }
 
+      @include mobile {
+        img {
+          max-width: 20rem;
+          margin: 0 auto;
+        }
+      }
+
       .buttonsWrapper {
         display: flex;
         gap: .5rem;
+      }
+    }
+
+    .box:first-child {
+      @include mobile {
+        order: 2;
       }
     }
   }
