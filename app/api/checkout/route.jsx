@@ -52,8 +52,8 @@ export async function POST(req) {
     line_items,
     mode: 'payment',
     customer_email: email,
-    success_url: `${process.env.PUBLIC_URL}/cart?success=1`,
-    cancel_url: `${process.env.PUBLIC_URL}/cart?cancel=1`,
+    success_url: `${process.env.NEXTJS_URL}/cart?success=1`,
+    cancel_url: `${process.env.NEXTJS_URL}/cart?cancel=1`,
     metadata: {orderId: orderDoc._id.toString()},
   })
 
