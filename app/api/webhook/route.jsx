@@ -39,6 +39,3 @@ export async function POST(req) {
 
   return NextResponse.json(200)
 }
-
-//mighty-hail-merry-fervid
-//acct_1P1Ck0BQLrDqDRcq

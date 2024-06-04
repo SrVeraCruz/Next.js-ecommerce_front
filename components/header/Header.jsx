@@ -17,8 +17,8 @@ export default function Header() {
           <nav className={navActive ? "nav active" : "nav" }>
             <Link href={'/'}>Home</Link>
             <Link href={'/products'}>All products</Link>
-            <Link href={'/categories'}>Categories</Link>
-            <Link href={'/account'}>Account</Link>
+            <Link href={'#'}>Categories</Link>
+            <Link href={'#'}>Account</Link>
             <Link href={'/cart'}>Cart ({cartProducts?.length || 0})</Link>
           </nav>
           <button 
